@@ -1,0 +1,66 @@
+﻿@model PersonSearchHC.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            Age
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @Model.Address1@(Model.Address2 != null && Model.Address2 != "" ? ", " + Model.Address2 + ", " : ", ") @Model.City, @Model.State @Model.Zip
+        </dd>
+
+        <dt>
+            Interests
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interests)
+        </dd>
+
+        <dt>
+            Profile Picture
+        </dt>
+
+        <dd>
+            <img src="~/Content/Images/Donald_Trump_official_portrait.jpg" height="150" width="120" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
